@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block title%}Препарати{% endblock %} {% block body
+%}
+<body class="body">
+  <h1 class="main-heading">Препарати</h1>
+  <div class="container">
+    <div class="clinic-info">
+      <div class="input-field">
+        <input id="search" type="search" required />
+        <label class="label-icon" for="search"
+          ><i class="material-icons">Пошук</i></label
+        >
+        <i class="material-icons"></i>
+      </div>
+
+      <table id="pharmacyTable">
+        <thead>
+          <tr>
+            <th>Назва</th>
+            <th>Опис</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in pharmacy_data %}
+          <tr>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[4] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+{% endblock %}

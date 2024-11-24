@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block title %}Дякуємо за замовлення{% endblock %}
+{% block body %}
+<body>
+  <div class="thank-you-container">
+    <h1>Дякуємо за ваше замовлення!</h1>
+    <p class="thank-you-message">
+      Ми обробляємо ваше замовлення. Очікуйте на дзвінок від нашого менеджера.
+    </p>
+    <p>Маєте більше питань? Запишіться на прийом до нашого лікаря.</p>
+    <a href="/patients" class="btn">Записатися до лікаря</a>
+    <p>Або продовжіть покупки у нашому магазині.</p>
+    <a href="/store" class="btn">Перейти до магазину</a>
+  </div>
+</body>
+{% endblock %}

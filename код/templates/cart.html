@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block title %}Кошик{% endblock %} {% block body %}
+<body>
+  <header>
+    <link rel="stylesheet" href="/static/css/cart.css" />
+  </header>
+  <h1 class="main-heading">Кошик</h1>
+  <div class="container">
+    <div id="cart-container">
+      <!-- Відображення товарів -->
+    </div>
+    <div class="cart-summary">
+      <p>Загальна сума: <span id="total-price">0 грн</span></p>
+      <!-- <button class="btn" id="checkout-button">Оформити замовлення</button> -->
+      <button
+        class="btn"
+        id="checkout-button"
+        onclick="window.location.href='/checkout'"
+      >
+        Оформити замовлення
+      </button>
+    </div>
+  </div>
+  <script src="/static/js/cart.js"></script>
+</body>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block title %}Оформлення замовлення{% endblock %}
+{% block body %}
+<body>
+  <h1 class="main-heading">Оформлення замовлення</h1>
+  <div class="container">
+    <form id="checkout-form">
+      <div class="form-group">
+        <label for="customer-name">Ім'я</label>
+        <input type="text" id="customer-name" name="customer_name" required />
+      </div>
+      <div class="form-group">
+        <label for="customer-surname">Прізвище</label>
+        <input
+          type="text"
+          id="customer-surname"
+          name="customer_surname"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="phone">Номер телефону</label>
+        <input type="text" id="phone" name="phone" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <h2>Ваші товари</h2>
+      <div id="order-summary"></div>
+      <p>Загальна сума: <span id="total-amount">0 грн</span></p>
+      <button type="submit" class="btn">Оформити замовлення</button>
+    </form>
+  </div>
+  <script src="/static/js/checkout.js"></script>
+</body>
+{% endblock %}

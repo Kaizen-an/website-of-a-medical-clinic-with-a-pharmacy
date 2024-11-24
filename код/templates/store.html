@@ -1,0 +1,70 @@
+{% extends 'base.html' %}{% block title %}Магазин ліків{% endblock %} {% block
+body %}
+<body>
+  <header><link rel="stylesheet" href="/static/css/store.css" /></header>
+  <h1 class="main-heading">Магазин ліків</h1>
+  <div class="container">
+    <!-- Поле пошуку -->
+
+    <div class="input-field">
+      <input
+        id="search"
+        type="text"
+        placeholder="Пошук за назвою або складом"
+      />
+    </div>
+
+    <!-- Бічна панель з фільтрами -->
+    <div class="sidebar">
+      <h4>Фільтри за категоріями</h4>
+      <form id="filter-form">
+        {% for category in categories %}
+        <label>
+          <input type="checkbox" name="category" value="{{ category[0] }}" />
+          <span>{{ category[1] }}</span>
+        </label>
+        {% endfor %}
+      </form>
+    </div>
+
+    <!-- Основна область для відображення товарів -->
+    <div class="products" id="products-container">
+      {% for product in products %}
+      <div class="product-card" onclick="openProductModal('{{ product[0] }}')">
+        <img
+          src="{{ product[1] }}"
+          alt="{{ product[2] }}"
+          class="product-photo"
+        />
+        <h5>{{ product[2] }}</h5>
+        <p>{{ product[3] }}</p>
+        <p><strong>Ціна:</strong> {{ product[4] }} грн</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Модальне вікно для детальної інформації -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <p id="modal-id" style="display: none"></p>
+      <h4 id="modal-title"></h4>
+      <img id="modal-photo" src="" alt="" class="modal-photo" />
+      <p id="modal-description"></p>
+      <p><strong>Склад:</strong> <span id="modal-ingredients"></span></p>
+      <p><strong>Ціна:</strong> <span id="modal-price"></span> грн</p>
+      <button class="btn" id="add-to-cart">Додати в кошик</button>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-flat modal-close">Закрити</button>
+    </div>
+  </div>
+
+  <script src="/static/js/store.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+{% endblock %}

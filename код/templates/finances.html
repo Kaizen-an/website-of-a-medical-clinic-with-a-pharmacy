@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block title%}Фінанси{% endblock %} {% block body %}
+<body class="body">
+    <h1 class="main-heading">Фінанси клініки</h1>
+    <div class="container">
+      <div class="info-box">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Дата транзакції</th>
+              <th>Сума транзакції</th>
+              <th>Пацієнт ID</th>
+              <th>Опції</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for finance in finances %}
+              <tr>
+                <td>{{ finance[0] }}</td>
+                <td>{{ finance[1] }}</td>
+                <td>{{ finance[2] }}</td>
+                <td>{{ finance[3]}}</td>
+                <td>
+                  <button class="waves-effect waves-light btn" onclick="deleteTransaction('{{finance[0]}}')">Видалити</button>
+                </td>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+</body>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block title %}Asclepius{% endblock %} {% block body
+%}
+<h1 class="main-heading">Медична клініка Asclepius</h1>
+
+<!-- Загальна статистика -->
+<div class="info-box">
+  <h2 class="section-heading">Загальна статистика</h2>
+  <div class="stats">
+    <p>
+      Кількість пацієнтів: <span class="stat-value">{{ total_patients }}</span>
+    </p>
+    <p>
+      Кількість медичних записів:
+      <span class="stat-value">{{ total_medical_records }}</span>
+    </p>
+  </div>
+</div>
+
+<!-- Пропозиція магазину -->
+<div class="store-promo">
+  <h2 class="section-heading">Придбайте ліки у нашому магазині</h2>
+  <p>
+    Шукаєте необхідні препарати? Завітайте до нашого магазину, щоб знайти ліки
+    для вашого здоров'я!
+  </p>
+  <a href="/store" class="btn">Перейти в магазин</a>
+</div>
+
+<!-- Таблиця лікарів -->
+<div class="clinic-info">
+  <h2 class="section-heading">Лікарі</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Ім'я</th>
+        <th>Прізвище</th>
+        <th>Спеціалізація</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for doctor in doctors %}
+      <tr>
+        <td>{{ doctor[1] }}</td>
+        <td>{{ doctor[2] }}</td>
+        <td>{{ doctor[3] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% block title%}Запис на прийом{% endblock %} {% block
+body %}
+<body class="body">
+  <h1 class="main-heading">Записатися на прийом до нашого лікаря</h1>
+  <div class="container">
+    <form action="/add_patient" method="post" class="container">
+      <label for="first_name">Ім'я:</label><br />
+      <input type="text" id="first_name" name="first_name" /><br />
+
+      <label for="last_name">Прізвище:</label><br />
+      <input type="text" id="last_name" name="last_name" /><br />
+
+      <label for="email">Email:</label><br />
+      <input type="text" id="email" name="email" /><br /><br />
+
+      <button type="submit" class="btn">Додати пацієнта</button>
+    </form>
+  </div>
+  <h1 class="main-heading">Список пацієнтів</h1>
+  <div class="container">
+    <div class="info-box">
+      <table class="tablec striped">
+        <thead>
+          <tr>
+            <th>Ім'я</th>
+            <th>Прізвище</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for patient in patients %}
+          <tr class="patient-row" data-patient-id="{{ patient[0] }}">
+            <td>{{ patient[1] }}</td>
+            <td>{{ patient[2] }}</td>
+            <td>{{ patient[3] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="/static/js/main.js"></script>
+</body>
+{% endblock %}
